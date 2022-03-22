@@ -34,10 +34,10 @@ const DEVICE = {
 // 修改
 
 const cookie =
-  "uuid=d7983115-362c-478c-85ef-544eb0a5d801; device=08522850c92cfbef77d9427d1458ba4f; sdcard_id_v2=d60d7940-7279-448e-accf-b7066467990b; dauth=eyJhbGciOiJIUzI1NiJ9.eyJpc0dyb3VwQWNjb3VudCI6ZmFsc2UsInJlc291cmNlRnJvbSI6MSwiaXNzIjoiY29ycC5pbWRhZGEuY24iLCJhZG1pbiI6ZmFsc2UsImRlcHQiOm51bGwsInVhIjoiVFc5NmFXeHNZUzgxTGpBZ0tFMWhZMmx1ZEc5emFEc2dTVzUwWld3Z1RXRmpJRTlUSUZnZ01UQmZNVFZmTnlrZ1FYQndiR1ZYWldKTGFYUXZOVE0zTGpNMklDaExTRlJOVEN3Z2JHbHJaU0JIWldOcmJ5a2dRMmh5YjIxbEx6azVMakF1TkRnME5DNDFNU0JUWVdaaGNta3ZOVE0zTGpNMiIsInV1aWQiOiJkNzk4MzExNS0zNjJjLTQ3OGMtODVlZi01NDRlYjBhNWQ4MDEiLCJzZWN1cml0eUxldmVsIjozLCJsb2dpblRpbWUiOjE2NDc1Njk1NzQxNTMsInBob25lIjoiMTgzNTE5MjU5MTIiLCJjaGluZXNlTmFtZSI6IjZKR2o1cGlPNXBpTyIsImV4cCI6MTY0NzYzMzYwMSwiaWF0IjoxNjQ3NTY5NTc0LCJlbWFpbCI6ImRvbmdtaW5nbWluZ0BpbWRhZGEuY24iLCJqdGkiOiJkb25nbWluZ21pbmciLCJ1c2VybmFtZSI6ImRvbmdtaW5nbWluZyJ9.jwEiGQ1MRBv4xR1gLbGsx956D_YU3GC4aqiFHH-l9VM; sid=Fe26.2**5e649a4a4fd8a47c42196e9866380598c70f08c1bed5e3007af731c5ab71afdc*ugHwxtBEPSNqs6LbXz2oVg*fIVtT7fFfmo0HiveHHHq7haVg4o-WEDoDHJ0vVlyclPd02leYG5slCvSE57ig8OzpGlvKFFD4laqGm0fqyfAyr-h4ztmOxxEMElGJqtyYcWKsWVDlt5DGoCYSov0ogvCiMJ1cUupX9fPqWBuCicUTlYImn2gPkmx9RFopMKjVBFbYo4tfmQKkrUqZSrw6pSrqaO3c-S3Ia5HeK2WANGQCBcK1IlYMsG0eBxv0lto66ek1f6vt2kKkbmRNlRIEJ7H**64a3843dc750e349fba7a94250333dee894154c34d83997f48ea94ddccc3b356*xvpMfXNpnYKPds0EkoPLx4vLkjrqzaUOhQ9Z9k8CheM";
+  "uuid=d7983115-362c-478c-85ef-544eb0a5d801; device=08522850c92cfbef77d9427d1458ba4f; sdcard_id_v2=d60d7940-7279-448e-accf-b7066467990b; dauth=eyJhbGciOiJIUzI1NiJ9.eyJpc0dyb3VwQWNjb3VudCI6ZmFsc2UsInJlc291cmNlRnJvbSI6MSwiaXNzIjoiY29ycC5pbWRhZGEuY24iLCJhZG1pbiI6ZmFsc2UsImRlcHQiOm51bGwsInVhIjoiVFc5NmFXeHNZUzgxTGpBZ0tFMWhZMmx1ZEc5emFEc2dTVzUwWld3Z1RXRmpJRTlUSUZnZ01UQmZNVFZmTnlrZ1FYQndiR1ZYWldKTGFYUXZOVE0zTGpNMklDaExTRlJOVEN3Z2JHbHJaU0JIWldOcmJ5a2dRMmh5YjIxbEx6azVMakF1TkRnME5DNDFNU0JUWVdaaGNta3ZOVE0zTGpNMiIsInV1aWQiOiJkNzk4MzExNS0zNjJjLTQ3OGMtODVlZi01NDRlYjBhNWQ4MDEiLCJzZWN1cml0eUxldmVsIjoxLCJsb2dpblRpbWUiOjE2NDczMjgwOTI0MjcsInBob25lIjoiMTgzNTE5MjU5MTIiLCJjaGluZXNlTmFtZSI6IjZKR2o1cGlPNXBpTyIsImV4cCI6MTY0NzM3NDQwMSwiaWF0IjoxNjQ3MzI4MDkyLCJlbWFpbCI6ImRvbmdtaW5nbWluZ0BpbWRhZGEuY24iLCJqdGkiOiJkb25nbWluZ21pbmciLCJ1c2VybmFtZSI6ImRvbmdtaW5nbWluZyJ9.iaKJMYHdfLeU_fxStaZ-0OQOZ80hvdSxz0hr4Hs_v9s";
 const timeOneDay = 86400000,
-  startDate = "03-10",
-  endDate = "03-17";
+  startDate = "03-15",
+  endDate = "03-16";
 
 const startTime = `2022-${startDate} 00:00:00`,
   endTime = `2022-${endDate} 00:00:00`;
@@ -83,7 +83,7 @@ const getOneTrack = async (trackKey: string, device: string) => {
     );
   }
 
-  // 合并每天的数据
+  // 合并每天的数据(kibana源数据)
   let mergeData: any = [];
   await Promise.all(PromiseArr)
     .then((result) => {
@@ -97,65 +97,56 @@ const getOneTrack = async (trackKey: string, device: string) => {
       console.log("========PromiseError===============", error);
     });
 
-  // 处理数据
-  let res: any = [],
-    sum = 0;
-
-  mergeData.forEach((item: any) => {
-    let {
-      _source: {
-        memo: { [trackKey]: trackValue }, // 解构出变量值
-      },
-    } = item;
-    trackValue.split(",").forEach((ele: any) => {
-      sum += +ele;
-      res.push([+ele]);
-    });
-  }, []);
-
-  let average = null,
-    seventhFive = null,
-    eighthFive = null,
-    ninthFive = null;
-  if (res.length > 0) {
-    average = sum / res.length;
-
-    let sortArr = sortFun(res);
-    seventhFive = percentFun(sortArr, 75);
-    eighthFive = percentFun(sortArr, 85);
-    ninthFive = percentFun(sortArr, 95);
-  }
-
   return {
-    name: trackKey,
-    data: [[trackKey], ...res],
-    average,
-    seventhFive,
-    eighthFive,
-    ninthFive,
+    trackKey: mergeData, // mergeData为查询时间段内，单次查询语句(埋点key + 设备device)，返回全量结果
   };
+
+  // // 处理数据
+  // let res: any = [],
+  //   sum = 0;
+
+  // mergeData.forEach((item: any) => {
+  //   let {
+  //     _source: {
+  //       memo: { [trackKey]: trackValue }, // 解构出变量值
+  //     },
+  //   } = item;
+  //   trackValue.split(",").forEach((ele: any) => {
+  //     sum += +ele;
+  //     res.push([+ele]);
+  //   });
+  // }, []);
+
+  // let average = null,
+  //   seventhFive = null,
+  //   eighthFive = null,
+  //   ninthFive = null;
+  // if (res.length > 0) {
+  //   average = sum / res.length;
+
+  //   let sortArr = sortFun(res);
+  //   seventhFive = percentFun(sortArr, 75);
+  //   eighthFive = percentFun(sortArr, 85);
+  //   ninthFive = percentFun(sortArr, 95);
+  // }
 
   // return {
   //   name: trackKey,
-  //   data: [
-  //     [
-  //       trackKey,
-
-  //       "average",
-  //       average,
-  //       "seventhFive",
-  //       seventhFive,
-  //       "eighthFive",
-  //       eighthFive,
-  //       "ninthFive",
-  //       ninthFive,
-  //     ],
-  //     ...res,
-  //   ],
+  //   data: res,
+  //   average,
+  //   seventhFive,
+  //   eighthFive,
+  //   ninthFive,
   // };
 };
 
-const generateXlsx = (excelData: any, device: string) => {
+const generateXlsx = (excelData: any) => {
+  // {
+  //   APP : [埋点1的mergeData[], 埋点2的mergeData[], ......];
+  //   PC : [埋点1的mergeData[], 埋点2的mergeData[], ......];
+  //   MOBILE : [埋点1的mergeData[], 埋点2的mergeData[], ......]
+  // }
+
   // 处理为表格需要的数据格式
   let statisticsData = {
     name: "统计数据",
@@ -169,7 +160,6 @@ const generateXlsx = (excelData: any, device: string) => {
       data: [
         ...statisticsData.data,
         [
-          device,
           name,
           data.slice(1).length,
           average,
@@ -192,7 +182,7 @@ const generateXlsx = (excelData: any, device: string) => {
   // 生成表格
   fs.writeFileSync(
     path.resolve(
-      `人工调度台埋点耗时统计/results/newData/${startDate}~${endDate}${device}.xlsx`
+      `人工调度台埋点耗时统计/results/newData/${startDate}~${endDate}All.xlsx`
     ),
     buffer,
     {
@@ -206,26 +196,30 @@ const getAllData = async () => {
   let sheetsDataPC: any = [];
   let sheetsDataMOBILE: any = [];
 
-  // APP
-  // const promisesheetsDataAPP = trackDispatchH5.map(async (trackKey) => {
-  //   return await getOneTrack(trackKey, "APP");
-  // });
-  // sheetsDataAPP = await Promise.all(promisesheetsDataAPP);
-  // generateXlsx(sheetsDataAPP, "APP");
+  // APP [埋点1的mergeData[], 埋点2的mergeData[], ......]
+  const promisesheetsDataAPP = trackDispatchH5.map(async (trackKey) => {
+    return await getOneTrack(trackKey, "APP");
+  });
+  sheetsDataAPP = await Promise.all(promisesheetsDataAPP);
 
   // PC
   const promisesheetsDataPC = trackDispatch.map(async (trackKey) => {
     return await getOneTrack(trackKey, "PC");
   });
   sheetsDataPC = await Promise.all(promisesheetsDataPC);
-  generateXlsx(sheetsDataPC, "PC");
 
   // MOBILE-浏览器
   const promisesheetsDataMOBILE = trackDispatch.map(async (trackKey) => {
     return await getOneTrack(trackKey, "MOBILE");
   });
   sheetsDataMOBILE = await Promise.all(promisesheetsDataMOBILE);
-  generateXlsx(sheetsDataMOBILE, "MOBILE");
+
+  const allDeviceDate = {
+    APP: promisesheetsDataAPP,
+    PC: promisesheetsDataPC,
+    MOBILE: promisesheetsDataMOBILE,
+  };
+  generateXlsx(allDeviceDate);
 };
 
 getAllData();
