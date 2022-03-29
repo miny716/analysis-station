@@ -25,7 +25,8 @@
     },
     "types": [
       "@types",
-      "jest"
+      "jest",
+      "node"
     ]
   },
 }

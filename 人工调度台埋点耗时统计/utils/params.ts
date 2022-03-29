@@ -118,5 +118,17 @@ export const sortFun = (arr: any) => {
 export const percentFun = (sortArr: any, numth: any = 75) => {
   const L = sortArr.length;
   if (!L) return null;
+  sortArr = sortFun(sortArr);
   return +sortArr[Math.floor((L / 100) * numth)];
+};
+
+// 实现一个二维数组的转置
+export const traverseArr = (arr: any) => {
+  if (arr.length == 0) return [];
+  var newArr = arr[0].map((item: any, col: any) => {
+    return arr.map((rowArr: any, row: any) => {
+      return rowArr[col];
+    });
+  });
+  return newArr;
 };
