@@ -1,10 +1,13 @@
-import { TableCurrentDataSource } from "antd/lib/table/interface";
-import { table } from "console";
 import xlsx from "node-xlsx";
-import { percentFun, traverseArr } from "./utils/params";
+import { percentFun } from "./utils/params";
 
 const fs = require("fs");
 const path = require("path");
+
+const pre = "周-";
+// const pre = "";
+
+const dateTime = "03290401";
 
 /**
  * @param tableData 单个表格数据
@@ -15,7 +18,6 @@ function analysisTable(tableData: any, device: string) {
   for (let i = 1; i < tableData.length; i++) {
     const row = tableData[i];
     const [click_par, ...tail] = row;
-    console.log("======", JSON.stringify(click_par));
     clickParList.push(JSON.parse(click_par));
   }
 
@@ -82,7 +84,7 @@ function analysisTable(tableData: any, device: string) {
   ]);
   fs.writeFileSync(
     path.resolve(
-      `人工调度台埋点耗时统计/大数据埋点/0328/统计总0328-${device}.xlsx`
+      `人工调度台埋点耗时统计/大数据埋点/${dateTime}/统计总${dateTime}-${device}.xlsx`
     ),
     buffer,
     {
@@ -93,13 +95,13 @@ function analysisTable(tableData: any, device: string) {
 
 // 导出数据源
 var appCsv = xlsx.parse(
-  `人工调度台埋点耗时统计/大数据埋点/0328/调度台用户操作耗时埋点APP.csv`
+  `人工调度台埋点耗时统计/大数据埋点/${dateTime}/${pre}调度台用户操作耗时埋点APP_2022${dateTime}.csv`
 )[0].data;
 var notAppCsv = xlsx.parse(
-  `人工调度台埋点耗时统计/大数据埋点/0328/调度台用户操作耗时埋点非APP.csv`
+  `人工调度台埋点耗时统计/大数据埋点/${dateTime}/${pre}调度台用户操作耗时埋点非APP_2022${dateTime}.csv`
 )[0].data;
 
-// analysisTable(appCsv, "app");
+analysisTable(appCsv, "app");
 analysisTable(notAppCsv, "pc");
 
 console.log("======sendTrack=======over=====");
