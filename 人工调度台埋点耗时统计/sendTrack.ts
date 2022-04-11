@@ -4,10 +4,10 @@ import { percentFun } from "./utils/params";
 const fs = require("fs");
 const path = require("path");
 
-const pre = "周-";
-// const pre = "";
+// const pre = "周-";
+const pre = "";
 
-const dateTime = "03290401";
+const dateTime = "04020408";
 
 /**
  * @param tableData 单个表格数据
@@ -84,7 +84,8 @@ function analysisTable(tableData: any, device: string) {
   ]);
   fs.writeFileSync(
     path.resolve(
-      `人工调度台埋点耗时统计/大数据埋点/${dateTime}/统计总${dateTime}-${device}.xlsx`
+      // `人工调度台埋点耗时统计/大数据埋点/${dateTime}/统计总${dateTime}-${device}.xlsx`
+      `人工调度台埋点耗时统计/大数据埋点/${dateTime}/统计总-portalTableListTrace-${device}.xlsx`
     ),
     buffer,
     {
@@ -93,15 +94,27 @@ function analysisTable(tableData: any, device: string) {
   );
 }
 
-// 导出数据源
-var appCsv = xlsx.parse(
-  `人工调度台埋点耗时统计/大数据埋点/${dateTime}/${pre}调度台用户操作耗时埋点APP_2022${dateTime}.csv`
+let appCsv = xlsx.parse(
+  `人工调度台埋点耗时统计/大数据埋点/${dateTime}/${pre}portalTableListTrace-调度台用户操作耗时埋点0405.csv`
 )[0].data;
-var notAppCsv = xlsx.parse(
-  `人工调度台埋点耗时统计/大数据埋点/${dateTime}/${pre}调度台用户操作耗时埋点非APP_2022${dateTime}.csv`
-)[0].data;
+analysisTable(appCsv, `0405`);
 
-analysisTable(appCsv, "app");
-analysisTable(notAppCsv, "pc");
+// for (let i = 2; i <= 8; i++) {
+//   let appCsv = xlsx.parse(
+//     `人工调度台埋点耗时统计/大数据埋点/${dateTime}/${pre}portalTableListTrace-调度台用户操作耗时埋点040${i}.csv`
+//   )[0].data;
+//   analysisTable(appCsv, `040${i}`);
+// }
+
+// 导出数据源
+// var appCsv = xlsx.parse(
+//   `人工调度台埋点耗时统计/大数据埋点/${dateTime}/${pre}portalWayBillClickTrace-调度台用户操作耗时埋点0408.csv`
+// )[0].data;
+// var notAppCsv = xlsx.parse(
+//   `人工调度台埋点耗时统计/大数据埋点/${dateTime}/${pre}portalScreenTrace-调度台用户操作耗时埋点_2022${dateTime}.csv`
+// )[0].data;
+
+// analysisTable(appCsv, "makeAssignTrace");
+// analysisTable(notAppCsv, "portalScreenTrace");
 
 console.log("======sendTrack=======over=====");
