@@ -81,7 +81,7 @@ function analysisTable(tableData: any, downLoadUrl: string) {
   });
 }
 
-const dateTime = "05280603";
+const dateTime = "06040610";
 // // 1、portalScreenTrace 周
 // let portalScreenTrace = xlsx.parse(
 //   `人工调度台埋点耗时统计/大数据埋点/${dateTime}/portalScreenTrace-调度台用户操作耗时埋点${dateTime}.csv`
@@ -89,16 +89,16 @@ const dateTime = "05280603";
 // let portalScreenTraceUrl = `人工调度台埋点耗时统计/大数据埋点/${dateTime}/统计-portalScreenTrace-调度台用户操作耗时埋点${dateTime}.xlsx`;
 // analysisTable(portalScreenTrace, portalScreenTraceUrl);
 
-// // 2、portalWayBillClickTrace 每天
-// for (let i = 28; i <= 31; i++) {
-//   const dateEle = i < 10 ? `050${i}` : `05${i}`;
-//   let appCsv = xlsx.parse(
-//     `人工调度台埋点耗时统计/大数据埋点/${dateTime}/portalWayBillClickTrace-调度台用户操作耗时埋点${dateEle}.csv`
-//   )[0].data;
+// 2、portalWayBillClickTrace 每天
+for (let i = 4; i <= 7; i++) {
+  const dateEle = i < 10 ? `060${i}` : `06${i}`;
+  let appCsv = xlsx.parse(
+    `人工调度台埋点耗时统计/大数据埋点/${dateTime}/portalWayBillClickTrace-调度台用户操作耗时埋点${dateEle}.csv`
+  )[0].data;
 
-//   let url = `人工调度台埋点耗时统计/大数据埋点/${dateTime}/统计-portalWayBillClickTrace-调度台用户操作耗时埋点${dateEle}.xlsx`;
-//   analysisTable(appCsv, url);
-// }
+  let url = `人工调度台埋点耗时统计/大数据埋点/${dateTime}/统计-portalWayBillClickTrace-调度台用户操作耗时埋点${dateEle}.xlsx`;
+  analysisTable(appCsv, url);
+}
 // for (let i = 1; i <= 3; i++) {
 //   const dateEle = i < 10 ? `060${i}` : `06${i}`;
 //   let appCsv = xlsx.parse(
@@ -109,15 +109,15 @@ const dateTime = "05280603";
 //   analysisTable(appCsv, url);
 // }
 
-// // 3、portalMakeAssignTrace-调度台用户操作耗时埋点
-// const firstDate = "06020603";
+// 3、portalMakeAssignTrace-调度台用户操作耗时埋点
+const firstDate = "06040607";
 
-// let portalMakeAssignTrace = xlsx.parse(
-//   `人工调度台埋点耗时统计/大数据埋点/${dateTime}/portalMakeAssignTrace-调度台用户操作耗时埋点${firstDate}.csv`
-// )[0].data;
-// let portalMakeAssignTraceUrl = `人工调度台埋点耗时统计/大数据埋点/${dateTime}/统计-portalMakeAssignTrace-调度台用户操作耗时埋点${firstDate}.xlsx`;
-// analysisTable(portalMakeAssignTrace, portalMakeAssignTraceUrl);
-// // ======
+let portalMakeAssignTrace = xlsx.parse(
+  `人工调度台埋点耗时统计/大数据埋点/${dateTime}/portalMakeAssignTrace-调度台用户操作耗时埋点${firstDate}.csv`
+)[0].data;
+let portalMakeAssignTraceUrl = `人工调度台埋点耗时统计/大数据埋点/${dateTime}/统计-portalMakeAssignTrace-调度台用户操作耗时埋点${firstDate}.xlsx`;
+analysisTable(portalMakeAssignTrace, portalMakeAssignTraceUrl);
+// ======
 // // const secondDate = "05250527";
 
 // // let portalMakeAssignTrace1 = xlsx.parse(
@@ -127,7 +127,7 @@ const dateTime = "05280603";
 // // analysisTable(portalMakeAssignTrace1, portalMakeAssignTraceUrl1);
 
 // 4、portalTableListTrace-调度台用户操作耗时埋点
-const oneday = "0531";
+const oneday = "0607";
 let portalTableListTrace = xlsx.parse(
   `人工调度台埋点耗时统计/大数据埋点/${dateTime}/portalTableListTrace-调度台用户操作耗时埋点${oneday}.csv`
 )[0].data;
